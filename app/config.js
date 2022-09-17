@@ -8,6 +8,8 @@ class Config {
     // if player click to move right when he come from right then this event will not be registred
     antyStupid = true;
     
+    playerDefaultSpeed = 500;
+
     playersStyle = [
         {"color": "red"},
         {"color": "green"},
@@ -21,15 +23,15 @@ class Config {
     ];
 
     playersDefaultMove = [
-        (cords) => {return [cords[0]+1, cords[1]]},
-        (cords) => {return [cords[0]-1, cords[1]]},
-        (cords) => {return [cords[0]-1, cords[1]]},
-        (cords) => {return [cords[0]+1, cords[1]]},
+        [(cords) => {return [cords[0]+1, cords[1]]}, null],
+        [(cords) => {return [cords[0]-1, cords[1]]}, null],
+        [(cords) => {return [cords[0]-1, cords[1]]}, null],
+        [(cords) => {return [cords[0]+1, cords[1]]}, null],
 
-        (cords) => {return [cords[0], cords[1]+1]},
-        (cords) => {return [cords[0], cords[1]-1]},
-        (cords) => {return [cords[0]+1, cords[1]]},
-        (cords) => {return [cords[0]-1, cords[1]]}
+        (cords) => {return [cords[0], cords[1]+1],   null},
+        (cords) => {return [cords[0], cords[1]-1],   null},
+        (cords) => {return [cords[0]+1, cords[1]],   null},
+        (cords) => {return [cords[0]-1, cords[1]],   null}
     ];
 
     playersSpawns = [];

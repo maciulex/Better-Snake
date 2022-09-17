@@ -13,9 +13,17 @@ function generateBoard(x, y) {
     config.htmlPlaces.board.innerHTML = result;
 }
 
+function drawOn(cords, color) {
+    document.querySelector(`#x${cords[0]}y${cords[1]}`).style.backgroundColor = color;
+} 
+
+function undrawOn(cords) {
+    document.querySelector(`#x${cords[0]}y${cords[1]}`).style.backgroundColor = "";
+}
+
 function initialDrawPlayers() {
     for (let i = 0; i < config.playersNumber; i++) {
-        let playerCords = gameConductor.players[i].snake;
-        document.querySelector(`#x${playerCords[0][0]}y${playerCords[0][1]}`).style.backgroundColor = gameConductor.players[i].style.color;
+        let playerCords = gameConductor.players[i].snake[0];
+        document.querySelector(`#x${playerCords[0]}y${playerCords[1]}`).style.backgroundColor = gameConductor.players[i].style.color;
     }
 }
