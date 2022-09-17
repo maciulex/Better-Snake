@@ -4,6 +4,16 @@ body {
   margin: 0;
 }
 
+body main {
+  display: -ms-grid;
+  display: grid;
+  height: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
 body main table {
   width: 90vh;
   height: 90vh;

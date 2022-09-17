@@ -6,6 +6,7 @@ function init(width, height, playerNumber) {
     config = new Config(width, height, playerNumber);
     gameConductor = new GameConductor();
     generateBoard(config.width, config.height);
+    initialDrawPlayers();
 }
 
-init(10, 10, 1);
+init(11, 11, 1);

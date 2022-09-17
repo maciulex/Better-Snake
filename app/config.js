@@ -8,15 +8,15 @@ class Config {
     playersNumber = 1;
     
     playersStyle = [
-        ["color", "red"],
-        ["color", "green"],
-        ["color", "blue"],
-        ["color", "purple"],
+        {"color": "red"},
+        {"color": "green"},
+        {"color": "blue"},
+        {"color": "purple"},
 
-        ["color", "orange"],
-        ["color", "pink"],
-        ["color", "yellow"],
-        ["color", "black"],
+        {"color": "orange"},
+        {"color": "pink"},
+        {"color": "yellow"},
+        {"color": "black"},
     ];
     playersSpawns = [];
 
@@ -80,14 +80,14 @@ class Config {
 
         this.playersSpawns = [
             [1, 1],
-            [this.width - 1, this.height - 1],
-            [this.width -1, 1],
-            [1, this.height - 1],
+            [this.width - 2, this.height - 2],
+            [this.width - 2, 1],
+            [1, this.height - 2],
 
             [Math.floor(this.width/2), 1],
-            [Math.ceil(this.width/2), this.height - 1],
+            [Math.floor(this.width/2), this.height - 2],
             [1, Math.floor(this.height / 2)],
-            [this.width - 1, Math.ceil(this.height / 2)]
+            [this.width - 2, Math.floor(this.height / 2)]
         ];
 
         for (let i = 0; i < playersAmount; i++) {

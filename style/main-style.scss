@@ -5,6 +5,11 @@ body {
 
     margin: 0;
     main {
+        display: grid;
+        height: 100%;
+
+        align-items: center;
+        justify-items: center;
         table {
             width: 90vh;
             height: 90vh;
