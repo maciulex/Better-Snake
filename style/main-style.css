@@ -4,6 +4,12 @@ body {
   margin: 0;
 }
 
+body .error {
+  color: red;
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
 body main {
   display: -ms-grid;
   display: grid;

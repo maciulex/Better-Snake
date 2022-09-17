@@ -2,10 +2,11 @@ class Config {
     classReady = false;
     width  = 0;
     height = 0;
-    
 
-    players = [];
     playersNumber = 1;
+
+    // if player click to move right when he come from right then this event will not be registred
+    antyStupid = true;
     
     playersStyle = [
         {"color": "red"},
@@ -18,6 +19,19 @@ class Config {
         {"color": "yellow"},
         {"color": "black"},
     ];
+
+    playersDefaultMove = [
+        (cords) => {return [cords[0]+1, cords[1]]},
+        (cords) => {return [cords[0]-1, cords[1]]},
+        (cords) => {return [cords[0]-1, cords[1]]},
+        (cords) => {return [cords[0]+1, cords[1]]},
+
+        (cords) => {return [cords[0], cords[1]+1]},
+        (cords) => {return [cords[0], cords[1]-1]},
+        (cords) => {return [cords[0]+1, cords[1]]},
+        (cords) => {return [cords[0]-1, cords[1]]}
+    ];
+
     playersSpawns = [];
 
     powerUps = [
@@ -67,11 +81,11 @@ class Config {
 
     constructor (width, height, playersAmount) {
         if (playersAmount < 1 || playersAmount > 8) {
-            alert("INVALID PLAYER NUMBER");
+            ERROR = "INVALID PLAYER NUMBER";
             return;
         }
         if (width < 1 || height < 1) {
-            alert("INVALID BOARD SIZE");
+            ERROR = "INVALID BOARD SIZE";
             return;
         }
         this.width = width;
@@ -89,10 +103,6 @@ class Config {
             [1, Math.floor(this.height / 2)],
             [this.width - 2, Math.floor(this.height / 2)]
         ];
-
-        for (let i = 0; i < playersAmount; i++) {
-            this.players.push(new Player(this.playersSpawns[i]));
-        }
 
         this.classReady = true;
     }

@@ -4,6 +4,13 @@ body {
     height: 100vh;
 
     margin: 0;
+
+    .error {
+        color: red;
+        font-size: xx-large;
+        font-weight: bolder;
+    }
+
     main {
         display: grid;
         height: 100%;
