@@ -1,0 +1,21 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+body main table {
+  width: 90vh;
+  height: 90vh;
+}
+
+body main table td {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  border: 1px solid;
+}
+/*# sourceMappingURL=main-style.css.map */
