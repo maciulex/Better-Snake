@@ -1,6 +1,7 @@
 class GameConductor {
     gameStarted = false;
 
+    playersPlaying = [];
     players = [];
     intervals = [];
 
@@ -22,13 +23,16 @@ class GameConductor {
                                 this.setNewTimeout(i);
                             }, this.players[i].speed , i);
     }
-    gameStarted() {
 
+    playerLoose(id) {
+        this.playersPlaying[id] = false;
+        clearTimeout(this.intervals[id]);
     }
 
     constructor() {
         for (let i = 0; i < config.playersNumber; i++) {
-            this.players.push(new Player(config.playersSpawns[i], config.playersStyle[i], config.playerDefaultSpeed, config.playersDefaultMove[i]));
+            this.playersPlaying.push(true);
+            this.players.push(new Player(i, config.playersSpawns[i], config.playersStyle[i], config.playerDefaultSpeed, config.playersDefaultMove[i]));
         }
     }
 
