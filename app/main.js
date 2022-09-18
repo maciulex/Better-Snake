@@ -12,8 +12,8 @@ function init(width, height, playerNumber) {
         config.htmlPlaces.board.innerHTML = `<div class="error">Not enough controls for players</div>`;
         return false;
     }
-    gameConductor = new GameConductor();
     generateBoard(config.width, config.height);
+    gameConductor = new GameConductor();
     initialDrawPlayers();
 }
 

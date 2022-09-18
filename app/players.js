@@ -8,29 +8,35 @@ class Player {
     loosed = false;
 
     makeMove() {
-        let lastCords = this.snake[this.snake.length-1];
-        undrawOn(lastCords);
-        this.snake.unshift(this.move[0](this.snake[0]));
+        if (this.loosed) return;
+        let newCordinates = this.move[0](this.snake[0]);
+        if (this.checkIfOutsideMap(newCordinates)) return this.loose();
+        
+        let headPlace = this.checkWhatCrawlIn(newCordinates);
+        if (headPlace < 8 && headPlace != -1) return this.loose();
+        
+        this.snake.unshift(newCordinates);
+        let lastCords = this.snake.pop();
+
         this.lastMoveCode = this.move[1];
 
-        if (this.checkIfOutsideMap(this.snake[0])) return this.loose();
         
-        let headPlace = this.checkWhatCrawlIn();
         if (headPlace != -1) {
-            if (headPlace < 8) {
-                return this.loose();
-            }
             gameConductor.powerUp(this.id, headPlace);
         }
 
-        if (this.snake.length > 1) this.snake.pop();
         drawOn(this.snake[0], this.style.color);
-
-        if (lastCords[0] != this.snake[this.snake.length-1][0] && lastCords[1] != this.snake[this.snake.length-1][1]) gameConductor.clearBoardAccesybility(lastCords);
+        undrawOn(lastCords);
+        gameConductor.clearBoardAccesybility(lastCords);
         gameConductor.setBoardAccesybilityToPlayer(this.snake[0], this.id);
+        gameConductor.setBoardAccesybilityToPlayer(this.snake[this.snake.length-1], this.id);
+
+        // console.log(this.snake.length)
+        // if (lastCords[0] != this.snake[this.snake.length-1][0] && lastCords[1] != this.snake[this.snake.length-1][1]) {
+        // }
     }
-    checkWhatCrawlIn() {
-        return -1;
+    checkWhatCrawlIn(cords) {
+        return gameConductor.checkBoardAccesibility(cords);
     }
 
     drawFirstElement() {
@@ -38,7 +44,9 @@ class Player {
     }
 
     addCell() {
+        console.log("FSFAFA");
 
+        this.snake.push(this.snake[this.snake.length-1]);
     }
 
     loose() {

@@ -7,6 +7,9 @@ class GameConductor {
     
     intervals = [];
     powerUpInterval;
+
+    powerUpsAllwaysOnMap = [];
+
     gameStartInit() {
         this.gameStarted = true;
         for (let i = 0; i < config.playersNumber; i++) {
@@ -30,9 +33,16 @@ class GameConductor {
     playerLoose(id) {
         this.playersPlaying[id] = false;
         clearTimeout(this.intervals[id]);
-        console.log(this.players[id], id);
         for (let i = 0; i < this.players[id].snake.length; i++) {
             this.clearBoardAccesybility(this.players[id].snake[i]);
+            undrawOn(this.players[id].snake[i]);
+        }
+        let game = false;
+        for (let i = 0; i < this.playersPlaying.length; i++) {
+            if (this.playersPlaying[i]) game = !game;
+        }
+        if (!game) {
+            this.gameOver();
         }
     }
 
@@ -44,8 +54,50 @@ class GameConductor {
         this.boardAccesibility[cords[0]][cords[1]] = -1;
     }
 
-    powerUp(id, which) {
+    gameOver() {
+        config.htmlPlaces.board.innerHTML = `<div class="error">GAME OVER</div><br><button onclick="init(11, 11, 1);">Restart</button>`;
+    }
 
+    powerUp(id, which) {
+        console.log(id, which);
+        let indexUp = -1;
+        for (let i = 0; i < config.powerUpsAllwaysOnMap.length; i++) {
+            if (config.powerUps[config.powerUpsAllwaysOnMap[i]].id == which) {
+                this.powerUpsAllwaysOnMap[i] = false;
+                this.spawmAllwaysOnMapPowerUps();
+                indexUp = config.powerUpsAllwaysOnMap[i];
+                break;
+            }   
+        }
+        if (indexUp == -1) {
+            for (let i = 0; i < config.powerUpsNotAllwaysOnMap.length; i++) {
+                if (config.powerUps[config.powerUpsNotAllwaysOnMap[i]].id == which) {
+                    indexUp = config.powerUpsNotAllwaysOnMap[i];
+                    break;
+                }   
+            }
+        }
+        console.log(indexUp);
+        switch (indexUp) {
+            case 0:
+                let effect = config.powerUps[indexUp].effect(this.players[id].snake.length) - this.players[id].snake.length;
+                for (let i = 0; i < effect; i++) {
+                    this.players[id].addCell();
+                }
+            break;
+            case 1:
+
+            break;
+            case 2:
+
+            break;
+            case 3:
+
+            break;
+            case 4:
+
+            break;
+        }
     }
 
     getRandomMapCords() {
@@ -54,12 +106,30 @@ class GameConductor {
         return [x, y];
     }
 
-    spawmAllwaysOnMapPowerUps() {
+    checkBoardAccesibility(cords) {
+        return this.boardAccesibility[cords[0]][cords[1]];
+    }
 
+    spawmAllwaysOnMapPowerUps() {
+        for (let i = 0; i < config.powerUpsAllwaysOnMap.length; i++) {
+            if (this.powerUpsAllwaysOnMap[i]) continue;
+            while (true) {
+                let cords = this.getRandomMapCords();
+                if (this.boardAccesibility[cords[0]][cords[1]] == -1) {
+                    this.boardAccesibility[cords[0]][cords[1]] = config.powerUpsAllwaysOnMap[i].id;
+                    let color = config.powerUps[config.powerUpsAllwaysOnMap[i]].style.color;
+                    drawOn(cords, color);
+                    this.powerUpsAllwaysOnMap[i] = true;
+                    this.boardAccesibility[cords[0]][cords[1]] = config.powerUps[config.powerUpsAllwaysOnMap[i]].id;
+                    break;
+                }           
+            }
+        }
     }
     
     trySpawmNotAllwaysOnMapPowerUps() {
-
+        let idOfPowerUp = config.powerUpsNotAllwaysOnMap[Math.floor(Math.random() * config.powerUpsNotAllwaysOnMap.length)];
+        //console.log(idOfPowerUp);
     }
 
     constructor() {

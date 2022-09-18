@@ -37,10 +37,10 @@ class Config {
     playersSpawns = [];
 
     powerUpsAllwaysOnMapActive = true;
-    powerUpsAllwaysOnMap = [10];
+    powerUpsAllwaysOnMap = [0];
 
     powerUpsNotAllwaysOnMapActive = true;
-    powerUpsNotAllwaysOnMap = [11,12,13,14];
+    powerUpsNotAllwaysOnMap = [1,2,3,4];
     powerUpsNotAllwaysOnMapSpawnTryTime = 3000;
 
     powerUps = [
