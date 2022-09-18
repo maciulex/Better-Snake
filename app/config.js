@@ -38,6 +38,7 @@ class Config {
 
     powerUps = [
         {
+            id: 10,
             active: true,
             name: "speedup",
             displayName: "Przyśpieszenie",
@@ -46,6 +47,7 @@ class Config {
             }
         },
         {
+            id: 11,
             active: true,
             name: "slowdown",
             displayName: "Zwolnienie",
@@ -54,12 +56,14 @@ class Config {
             }
         },
         {
+            id: 12,
             active: true,
             name: "eater",
             displayName: "Odgryzacz",
             effect: null
         },
         {
+            id: 13,
             active: true,
             name: "longer",
             displayName: "Powiększenie",
@@ -68,6 +72,7 @@ class Config {
             }
         },
         {
+            id: 14,
             active: true,
             name: "cannibal",
             displayName: "Kanibal",
