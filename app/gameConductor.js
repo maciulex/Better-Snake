@@ -4,8 +4,9 @@ class GameConductor {
     playersPlaying = [];
     players = [];
     boardAccesibility = [];
+    
     intervals = [];
-
+    powerUpInterval;
     gameStartInit() {
         this.gameStarted = true;
         for (let i = 0; i < config.playersNumber; i++) {
@@ -47,6 +48,20 @@ class GameConductor {
 
     }
 
+    getRandomMapCords() {
+        let x = Math.floor(Math.random() * config.width);
+        let y = Math.floor(Math.random() * config.height);
+        return [x, y];
+    }
+
+    spawmAllwaysOnMapPowerUps() {
+
+    }
+    
+    trySpawmNotAllwaysOnMapPowerUps() {
+
+    }
+
     constructor() {
         for (let x = 0; x < config.width; x++) {
             this.boardAccesibility.push([]);
@@ -59,6 +74,10 @@ class GameConductor {
             this.setBoardAccesybilityToPlayer(config.playersSpawns[i], i)
             this.players.push(new Player(i, config.playersSpawns[i], config.playersStyle[i], config.playerDefaultSpeed, config.playersDefaultMove[i]));
         }
+        if (config.powerUpsNotAllwaysOnMapActive) {
+            this.powerUpInterval = setInterval(() => {this.trySpawmNotAllwaysOnMapPowerUps();}, config.powerUpsNotAllwaysOnMapSpawnTryTime);
+        }
+        if (config.powerUpsAllwaysOnMapActive) this.spawmAllwaysOnMapPowerUps();
     }
 
 }

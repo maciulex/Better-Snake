@@ -28,22 +28,30 @@ class Config {
         [(cords) => {return [cords[0]-1, cords[1]]}, null],
         [(cords) => {return [cords[0]+1, cords[1]]}, null],
 
-        (cords) => {return [cords[0], cords[1]+1],   null},
-        (cords) => {return [cords[0], cords[1]-1],   null},
-        (cords) => {return [cords[0]+1, cords[1]],   null},
-        (cords) => {return [cords[0]-1, cords[1]],   null}
+        [(cords) => {return [cords[0], cords[1]+1]}, null],
+        [(cords) => {return [cords[0], cords[1]-1]}, null],
+        [(cords) => {return [cords[0]+1, cords[1]]}, null],
+        [(cords) => {return [cords[0]-1, cords[1]]}, null]
     ];
 
     playersSpawns = [];
+
+    powerUpsAllwaysOnMapActive = true;
+    powerUpsAllwaysOnMap = [10];
+
+    powerUpsNotAllwaysOnMapActive = true;
+    powerUpsNotAllwaysOnMap = [11,12,13,14];
+    powerUpsNotAllwaysOnMapSpawnTryTime = 3000;
 
     powerUps = [
         {
             id: 10,
             active: true,
-            name: "speedup",
-            displayName: "Przyśpieszenie",
-            effect: (speed) => {
-                return Math.ceil(speed + (speed * 0.3));
+            name: "longer",
+            displayName: "Powiększenie",
+            style: {color: "darkgreen"},
+            effect: (size) => {
+                return size + 1;
             }
         },
         {
@@ -65,10 +73,10 @@ class Config {
         {
             id: 13,
             active: true,
-            name: "longer",
-            displayName: "Powiększenie",
-            effect: (size) => {
-                return size + 1;
+            name: "speedup",
+            displayName: "Przyśpieszenie",
+            effect: (speed) => {
+                return Math.ceil(speed + (speed * 0.3));
             }
         },
         {
