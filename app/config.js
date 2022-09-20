@@ -10,6 +10,19 @@ class Config {
     
     playerDefaultSpeed = 500;
 
+
+    playerMainName = [
+        "Czerwony",
+        "Zielony",
+        "Niebieski",
+        "Fioletowy",
+
+        "Pomarańczowy",
+        "Różowo",
+        "Zółty",
+        "Czarny"
+    ];
+
     playersStyle = [
         {"color": "red"},
         {"color": "green"},

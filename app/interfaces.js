@@ -6,7 +6,7 @@ class Interfaces {
                 <table>
                     <tbody>
                         <tr>
-                            <th colspan="3">Niebieski</th>
+                            <th colspan="3" style="color: ${config.playersStyle[i].color};">${config.playerMainName[i]}</th>
                         </tr>
                         <tr>
                             <td></td>
