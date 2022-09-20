@@ -1,4 +1,5 @@
 class GameConductor {
+    classReady = false;
     gameStarted = false;
 
     playersPlaying = [];
@@ -146,6 +147,7 @@ class GameConductor {
             this.powerUpInterval = setInterval(() => {this.trySpawmNotAllwaysOnMapPowerUps();}, config.powerUpsNotAllwaysOnMapSpawnTryTime);
         }
         if (config.powerUpsAllwaysOnMapActive) this.spawmAllwaysOnMapPowerUps();
+        this.classReady = true;
     }
 
 }

@@ -18,11 +18,16 @@ body .error {
   font-weight: bolder;
 }
 
-body section {
+body .userControlsInterface {
   position: absolute;
   z-index: 99;
   width: 90vw;
   height: 90vh;
+}
+
+body .userControlsInterface .mainControlsSet {
+  width: 100%;
+  height: 95%;
   background-color: #363732;
   border-radius: 10px;
   border: 10px solid black;
@@ -32,28 +37,28 @@ body section {
       grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-body section table {
+body .userControlsInterface .mainControlsSet table {
   padding: 2vh;
 }
 
-body section table .control, body section table th {
+body .userControlsInterface .mainControlsSet table .control, body .userControlsInterface .mainControlsSet table th {
   color: white;
   text-align: center;
   background-color: #342E37;
   border: 1px solid brown;
 }
 
-body section table .control {
+body .userControlsInterface .mainControlsSet table .control {
   cursor: pointer;
 }
 
-body section table th {
+body .userControlsInterface .mainControlsSet table th {
   padding: 0;
   margin: 0;
   font-size: 29px;
 }
 
-body section table th span {
+body .userControlsInterface .mainControlsSet table th span {
   color: white;
   font-size: medium;
 }

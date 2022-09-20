@@ -106,7 +106,9 @@ class Config {
     htmlPlaces = {
         board: document.querySelector("#BOARD"),
         interfaces: {
-            controls: document.querySelector(".userControlsInterface")
+            controls: document.querySelector(".mainControlsSet"),
+            controlsMainWindow: document.querySelector(".userControlsInterface")
+
         }
     }
 

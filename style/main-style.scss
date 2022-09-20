@@ -15,40 +15,43 @@ body {
         font-size: xx-large;
         font-weight: bolder;
     }
-
-    section {
+    .userControlsInterface {
         position: absolute;
         z-index: 99;
         width: 90vw;
         height: 90vh;
-        background-color: #363732;
+        .mainControlsSet {
+            width: 100%;
+            height: 95%;
+            background-color: #363732;
 
-        border-radius: 10px;
-        border: 10px solid black;
+            border-radius: 10px;
+            border: 10px solid black;
 
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
 
-        table {
-            padding: 2vh;
-            .control, th {
-                color: white;
-                text-align: center;
-                background-color: #342E37;
-                border: 1px solid brown;
-            }
-            
-            .control {
-                cursor: pointer;
-            }
+            table {
+                padding: 2vh;
+                .control, th {
+                    color: white;
+                    text-align: center;
+                    background-color: #342E37;
+                    border: 1px solid brown;
+                }
+                
+                .control {
+                    cursor: pointer;
+                }
 
-            th {
-                padding: 0;
-                margin: 0;
-                font-size: 29px;
-                span {
-                    color:white;
-                    font-size: medium;
+                th {
+                    padding: 0;
+                    margin: 0;
+                    font-size: 29px;
+                    span {
+                        color:white;
+                        font-size: medium;
+                    }
                 }
             }
         }

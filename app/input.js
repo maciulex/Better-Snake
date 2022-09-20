@@ -8,6 +8,67 @@ var playerControls = [
     (cords) => {return [cords[0], cords[1]+1]},//dol
 ];
 
+
+var specialKeyWords = [
+    ["debug", debug]
+];
+
+document.addEventListener("keydown", (e) => {
+    console.log(e)
+    if (setInput[0] !== null) {
+        if (e.code = "Space") return;
+        for (let i = 0; i < playerControlsRaw.length; i++) {
+            for (let key in playerControlsRaw[i]) {
+                if (key == e.code) return;
+            }
+        }
+        let counter = 0;
+        let oldControl;
+        let KeyInv;
+        for (let key in playerControlsRaw[setInput[0]]) {
+            if (playerControlsRaw[setInput[0]][key] == setInput[1]) {
+                KeyInv = key+"O"
+                oldControl = [key, playerControlsRaw[setInput[0]][key], playerControlsRaw[setInput[0]][KeyInv]];
+                break;
+            }
+            counter++
+        }
+        console.log(oldControl);
+        delete playerControlsRaw[setInput[0]][oldControl[0]];
+        delete playerControlsRaw[setInput[0]][KeyInv];
+        playerControlsRaw[setInput[0]][e.code] = oldControl[1];
+        playerControlsRaw[setInput[0]][(e.code+"O")] = oldControl[2];
+        setInput = [null, null];
+        interfaces.initControlsInterFace();
+        return;
+    }
+    for (let i = 0; i < config.playersNumber; i++) {
+        if (playerControlsRaw[i][e.code] != undefined) {
+            if (config.antyStupid && gameConductor.players[i].lastMoveCode == playerControlsRaw[i][e.code+"O"]) break;
+            gameConductor.players[i].move = [playerControls[playerControlsRaw[i][e.code]], playerControlsRaw[i][e.code]];
+        }
+    }
+    if (e.code == "Space") {
+        if (!gameConductor.classReady || !config.classReady) return;
+        if (gameConductor.gameStarted) return;
+        gameConductor.gameStartInit();
+    }
+});
+function setPlayerInput(player, which) {
+    setInput = [player, which];
+}
+
+var debug = () => {
+
+};
+
+
+function playerControlsValid(amountOfPlayers) {
+    if (amountOfPlayers <= playerControls.length) return true;
+    else return false;
+}
+
+
 var playerControlsRaw = [
     {
         "KeyA": 0,
@@ -90,59 +151,3 @@ var playerControlsRaw = [
         "Comma": 2,
     },
 ];
-
-var specialKeyWords = [
-    ["debug", debug]
-];
-
-document.addEventListener("keydown", (e) => {
-    console.log(e)
-    if (!setInput[0] != null) {
-        for (let i = 0; i < playerControlsRaw.length; i++) {
-            for (let key in playerControlsRaw[i]) {
-                if (key == e.code) return;
-            }
-        }
-        let counter = 0;
-        let oldControl;
-        let KeyInv;
-        for (let key in playerControlsRaw[setInput[0]]) {
-            if (playerControlsRaw[setInput[0]][key] == setInput[1]) {
-                KeyInv = key+"O"
-                oldControl = [key, playerControlsRaw[setInput[0]][key], playerControlsRaw[setInput[0]][KeyInv]];
-                break;
-            }
-            counter++
-        }
-        console.log(oldControl);
-        delete playerControlsRaw[setInput[0]][oldControl[0]];
-        delete playerControlsRaw[setInput[0]][KeyInv];
-        playerControlsRaw[setInput[0]][e.code] = oldControl[1];
-        playerControlsRaw[setInput[0]][(e.code+"O")] = oldControl[2];
-        setPlayerInput(null,null);
-        interfaces.initControlsInterFace();
-        return;
-    }
-    for (let i = 0; i < config.playersNumber; i++) {
-        if (playerControlsRaw[i][e.code] != undefined) {
-            if (config.antyStupid && gameConductor.players[i].lastMoveCode == playerControlsRaw[i][e.code+"O"]) break;
-            gameConductor.players[i].move = [playerControls[playerControlsRaw[i][e.code]], playerControlsRaw[i][e.code]];
-        }
-    }
-    if (e.code == "Space") {
-        if (!gameConductor.gameStarted) gameConductor.gameStartInit();
-    }
-});
-function setPlayerInput(player, which) {
-    setInput = [player, which];
-}
-
-var debug = () => {
-
-};
-
-
-function playerControlsValid(amountOfPlayers) {
-    if (amountOfPlayers <= playerControls.length) return true;
-    else return false;
-}

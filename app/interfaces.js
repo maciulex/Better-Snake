@@ -8,7 +8,6 @@ class Interfaces {
                 controls[playerControlsRaw[i][keys]] = keys; 
             }
             if (controls[0] == undefined) controls = ["Nie ustawiono","Nie ustawiono","Nie ustawiono","Nie ustawiono"];
-            else console.log(controls)
             config.htmlPlaces.interfaces.controls.innerHTML += `
                 <table>
                     <tbody>
@@ -32,6 +31,13 @@ class Interfaces {
                 </table>
             `;
         }
+    }
+
+    showConrolsInterface(show) {
+        if (show) return config.htmlPlaces.interfaces.controlsMainWindow.setAttribute("style", "display: block");
+        config.htmlPlaces.interfaces.controlsMainWindow.setAttribute("style", "display: none");
+        // if (show) return config.htmlPlaces.interfaces.controls.setAr = "display:block";
+        // config.htmlPlaces.interfaces.controls.style = "display:none";
     }
 
     constructor() {
