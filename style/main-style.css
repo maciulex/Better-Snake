@@ -1,4 +1,12 @@
 body {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30fr 70fr;
+      grid-template-columns: 30fr 70fr;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
   width: 100vw;
   height: 100vh;
   margin: 0;
@@ -10,14 +18,94 @@ body .error {
   font-weight: bolder;
 }
 
+body section {
+  position: absolute;
+  z-index: 99;
+  width: 90vw;
+  height: 90vh;
+  background-color: #363732;
+  border-radius: 10px;
+  border: 10px solid black;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+body section table {
+  padding: 2vh;
+}
+
+body section table .control, body section table th {
+  color: white;
+  text-align: center;
+  background-color: #342E37;
+  border: 1px solid brown;
+}
+
+body section table th {
+  padding: 0;
+  margin: 0;
+  font-size: 29px;
+}
+
+body aside {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  width: 100%;
+  height: 100%;
+  justify-items: center;
+}
+
+body aside table {
+  width: 80%;
+  height: 10vh;
+  font-size: xx-large;
+  border: 1px solid;
+  padding: 3%;
+  margin-top: 1vh;
+}
+
+body aside table th {
+  font-weight: 900;
+}
+
+body aside table td {
+  font-size: x-large;
+  font-weight: 100;
+}
+
+body aside table td, body aside table th {
+  border: 1px solid;
+  padding: 1.5%;
+  text-align: center;
+}
+
+body aside input {
+  width: 90%;
+  text-align: center;
+}
+
+body aside button {
+  width: 90%;
+  height: 4vh;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
 body main {
   display: -ms-grid;
   display: grid;
-  height: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  justify-items: center;
+  height: 100%;
 }
 
 body main table {

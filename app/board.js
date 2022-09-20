@@ -18,7 +18,6 @@ function drawOn(cords, color) {
 } 
 
 function undrawOn(cords) {
-    console.log(cords);
     document.querySelector(`#x${cords[0]}y${cords[1]}`).style.backgroundColor = "";
 }
 

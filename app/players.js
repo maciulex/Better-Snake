@@ -25,8 +25,9 @@ class Player {
             gameConductor.powerUp(this.id, headPlace);
         }
 
-        drawOn(this.snake[0], this.style.color);
         undrawOn(lastCords);
+        drawOn(this.snake[0], this.style.color);
+        drawOn(this.snake[this.snake.length-1], this.style.color);
         gameConductor.clearBoardAccesybility(lastCords);
         gameConductor.setBoardAccesybilityToPlayer(this.snake[0], this.id);
         gameConductor.setBoardAccesybilityToPlayer(this.snake[this.snake.length-1], this.id);
@@ -44,8 +45,6 @@ class Player {
     }
 
     addCell() {
-        console.log("FSFAFA");
-
         this.snake.push(this.snake[this.snake.length-1]);
     }
 

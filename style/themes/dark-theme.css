@@ -2,6 +2,20 @@
   background-color: #272727;
 }
 
+.dark aside {
+  color: white;
+}
+
+.dark aside table {
+  border-color: red;
+  background-color: #342E37;
+}
+
+.dark aside table td, .dark aside table th {
+  background-color: #272932;
+  border-color: red;
+}
+
 .dark main table td {
   border-color: white;
   background-color: #696773;

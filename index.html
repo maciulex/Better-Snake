@@ -15,10 +15,70 @@
     <script src="app/board.js"></script>
     <script src="app/gameConductor.js"></script>
     <script src="app/input.js"></script>
+    <script src="app/interfaces.js"></script>
+    <script src="app/leaderBoard.js"></script>
     <script src="app/main.js" defer="true"></script>
 </head>
 <body class="dark">
     
+    <section class="userControlsInterface"></section>
+
+    <aside>
+        <table class="settings">
+            <tr>
+                <th colspan="2">Ustawienia</th>
+            </tr>
+            <tr>
+                <td>Wielkość:</td>
+                <td><input type="number" min="5"         id="mapSizeSetting"        value="11"></td>
+            </tr>
+            <tr>
+                <td>Ilość graczy:</td>
+                <td><input type="number" min="1" max="8" id="playerAmountSetting"    value="1"></td>
+            </tr>
+            <tr>
+                <td>Szybkość:</td>
+                <td><input type="number" min="5"         id="playerBaseSpeedSetting"  value="500"></td>
+            </tr>
+            <tr>
+                <td><button onclick="">Ustaw pseudonimy</button></td>
+                <td><button onclick="">Ustawienia power'UP</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="">Ustaw Sterowanie</button></td>
+                <td>to do:</td>
+            </tr>
+            <tr>
+                <td colspan="2"><button style="width: 50%;" onclick="applySettings()">Zastosuj</button></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>Gracz:</th>
+                <th>Wynik:</th>
+            </tr>
+            <tr>
+                <td>Zielony</td>
+                <td>43</td>
+            </tr>
+            <tr>
+                <td>Czerwony</td>
+                <td>24</td>
+            </tr>
+            <tr>
+                <td>Brązowy</td>
+                <td>22</td>
+            </tr>
+            <tr>
+                <td>Niebieski</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <td>Fioletowy</td>
+                <td>5</td>
+            </tr>
+        </table>
+    </aside>
     <main>
         <div id="BOARD">
 

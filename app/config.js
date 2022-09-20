@@ -91,10 +91,13 @@ class Config {
     ];
 
     htmlPlaces = {
-        board: document.querySelector("#BOARD")
+        board: document.querySelector("#BOARD"),
+        interfaces: {
+            controls: document.querySelector(".userControlsInterface")
+        }
     }
 
-    constructor (width, height, playersAmount) {
+    constructor (width, height, playersAmount, playerDefaultSpeed) {
         if (playersAmount < 1 || playersAmount > 8) {
             ERROR = "INVALID PLAYER NUMBER";
             return;
@@ -120,5 +123,6 @@ class Config {
         ];
 
         this.classReady = true;
+        this.playerDefaultSpeed = playerDefaultSpeed;
     }
 }

@@ -59,7 +59,6 @@ class GameConductor {
     }
 
     powerUp(id, which) {
-        console.log(id, which);
         let indexUp = -1;
         for (let i = 0; i < config.powerUpsAllwaysOnMap.length; i++) {
             if (config.powerUps[config.powerUpsAllwaysOnMap[i]].id == which) {
@@ -77,7 +76,6 @@ class GameConductor {
                 }   
             }
         }
-        console.log(indexUp);
         switch (indexUp) {
             case 0:
                 let effect = config.powerUps[indexUp].effect(this.players[id].snake.length) - this.players[id].snake.length;

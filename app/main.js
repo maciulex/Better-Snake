@@ -1,9 +1,17 @@
 var config;
 var gameConductor;
+var interfaces;
+var leaderBoard;
 var ERROR = "";
 
-function init(width, height, playerNumber) {
-    config = new Config(width, height, playerNumber);
+var settingsHTML = {
+    size: document.querySelector("#mapSizeSetting"),
+    playersAmount: document.querySelector("#playerAmountSetting"),
+    speed: document.querySelector("#playerBaseSpeedSetting"),
+}
+
+function init(width, height, playerNumber, playerDefaultSpeed) {
+    config = new Config(width, height, playerNumber, playerDefaultSpeed);
     if (!config.classReady) {
         config.htmlPlaces.board.innerHTML = `<div class="error">${ERROR}</div>`;
         return false;
@@ -17,4 +25,13 @@ function init(width, height, playerNumber) {
     initialDrawPlayers();
 }
 
-init(11, 11, 1);
+function applySettings() {
+    let size = parseInt(settingsHTML.size.value);
+    let playersAmount = parseInt(settingsHTML.playersAmount.value);
+    let playerDefaultSpeed = parseInt(settingsHTML.speed.value)
+    init(size,size, playersAmount, playerDefaultSpeed);
+}
+
+applySettings();
+leaderBoard = new LeaderBoard;
+interfaces = new Interfaces;
