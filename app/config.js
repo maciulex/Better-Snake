@@ -18,7 +18,7 @@ class Config {
         "Fioletowy",
 
         "Pomarańczowy",
-        "Różowo",
+        "Różuwu",
         "Zółty",
         "Czarny"
     ];

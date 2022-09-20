@@ -37,10 +37,19 @@ body {
                 background-color: #342E37;
                 border: 1px solid brown;
             }
+            
+            .control {
+                cursor: pointer;
+            }
+
             th {
                 padding: 0;
                 margin: 0;
                 font-size: 29px;
+                span {
+                    color:white;
+                    font-size: medium;
+                }
             }
         }
     }

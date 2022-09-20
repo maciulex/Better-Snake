@@ -43,10 +43,19 @@ body section table .control, body section table th {
   border: 1px solid brown;
 }
 
+body section table .control {
+  cursor: pointer;
+}
+
 body section table th {
   padding: 0;
   margin: 0;
   font-size: 29px;
+}
+
+body section table th span {
+  color: white;
+  font-size: medium;
 }
 
 body aside {
