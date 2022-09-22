@@ -9,13 +9,16 @@ class Interfaces {
                 controls[playerControlsRaw[i][keys]] = keys; 
             }
             if (controls[0] == undefined) controls = ["Nie ustawiono","Nie ustawiono","Nie ustawiono","Nie ustawiono"];
+            let nickname = leaderBoard.getPlayerNickname(i);
+            if (nickname == null) nickname = "Nie ustawiono";
+
             config.htmlPlaces.interfaces.controls.innerHTML += `
                 <table>
                     <tbody>
                         <tr>
                             <th colspan="3" style="color: ${config.playersStyle[i].color};">
                                 ${config.playerMainName[i]}<br>
-                                <span>${leaderBoard.getPlayerNickname(i)}</span>
+                                <span>${nickname}</span>
                             </th>
                         </tr>
                         <tr>

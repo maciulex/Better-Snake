@@ -36,7 +36,8 @@ class GameConductor {
         clearTimeout(this.intervals[id]);
         for (let i = 0; i < this.players[id].snake.length; i++) {
             this.clearBoardAccesybility(this.players[id].snake[i]);
-            drawer.undrawOn(this.players[id].snake[i]);
+            if (config.pngRealism) drawer.photoUndrawOn(this.players[id].snake[i]);
+            else drawer.undrawOn(this.players[id].snake[i]);
         }
         let game = false;
         for (let i = 0; i < this.playersPlaying.length; i++) {
