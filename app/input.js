@@ -14,7 +14,6 @@ var specialKeyWords = [
 ];
 
 document.addEventListener("keydown", (e) => {
-    console.log(e)
     if (setInput[0] !== null) {
         if (e.code = "Space") return;
         for (let i = 0; i < playerControlsRaw.length; i++) {
@@ -22,7 +21,6 @@ document.addEventListener("keydown", (e) => {
                 if (key == e.code) return;
             }
         }
-        let counter = 0;
         let oldControl;
         let KeyInv;
         for (let key in playerControlsRaw[setInput[0]]) {

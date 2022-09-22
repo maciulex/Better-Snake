@@ -29,9 +29,13 @@ function applySettings() {
     let size = parseInt(settingsHTML.size.value);
     let playersAmount = parseInt(settingsHTML.playersAmount.value);
     let playerDefaultSpeed = parseInt(settingsHTML.speed.value)
+    console.log(playerDefaultSpeed);
     init(size,size, playersAmount, playerDefaultSpeed);
+    if (leaderBoard != undefined) leaderBoard.initLeaderBoard();
 }
 
 applySettings();
 leaderBoard = new LeaderBoard;
 interfaces = new Interfaces;
+
+

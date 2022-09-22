@@ -18,14 +18,14 @@ body .error {
   font-weight: bolder;
 }
 
-body .userControlsInterface {
+body .userControlsInterface, body .userNicknameInterface {
   position: absolute;
   z-index: 99;
   width: 90vw;
   height: 90vh;
 }
 
-body .userControlsInterface .mainControlsSet {
+body .userControlsInterface .mainControlsSet, body .userControlsInterface .mainNicknamesSet, body .userNicknameInterface .mainControlsSet, body .userNicknameInterface .mainNicknamesSet {
   width: 100%;
   height: 95%;
   background-color: #363732;
@@ -37,28 +37,28 @@ body .userControlsInterface .mainControlsSet {
       grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-body .userControlsInterface .mainControlsSet table {
+body .userControlsInterface .mainControlsSet table, body .userControlsInterface .mainNicknamesSet table, body .userNicknameInterface .mainControlsSet table, body .userNicknameInterface .mainNicknamesSet table {
   padding: 2vh;
 }
 
-body .userControlsInterface .mainControlsSet table .control, body .userControlsInterface .mainControlsSet table th {
+body .userControlsInterface .mainControlsSet table .control, body .userControlsInterface .mainControlsSet table th, body .userControlsInterface .mainNicknamesSet table .control, body .userControlsInterface .mainNicknamesSet table th, body .userNicknameInterface .mainControlsSet table .control, body .userNicknameInterface .mainControlsSet table th, body .userNicknameInterface .mainNicknamesSet table .control, body .userNicknameInterface .mainNicknamesSet table th {
   color: white;
   text-align: center;
   background-color: #342E37;
   border: 1px solid brown;
 }
 
-body .userControlsInterface .mainControlsSet table .control {
+body .userControlsInterface .mainControlsSet table .control, body .userControlsInterface .mainNicknamesSet table .control, body .userNicknameInterface .mainControlsSet table .control, body .userNicknameInterface .mainNicknamesSet table .control {
   cursor: pointer;
 }
 
-body .userControlsInterface .mainControlsSet table th {
+body .userControlsInterface .mainControlsSet table th, body .userControlsInterface .mainNicknamesSet table th, body .userNicknameInterface .mainControlsSet table th, body .userNicknameInterface .mainNicknamesSet table th {
   padding: 0;
   margin: 0;
   font-size: 29px;
 }
 
-body .userControlsInterface .mainControlsSet table th span {
+body .userControlsInterface .mainControlsSet table th span, body .userControlsInterface .mainNicknamesSet table th span, body .userNicknameInterface .mainControlsSet table th span, body .userNicknameInterface .mainNicknamesSet table th span {
   color: white;
   font-size: medium;
 }
@@ -95,10 +95,15 @@ body aside table td {
   font-weight: 100;
 }
 
+body aside table tr {
+  width: 100%;
+}
+
 body aside table td, body aside table th {
   border: 1px solid;
   padding: 1.5%;
   text-align: center;
+  width: 50%;
 }
 
 body aside input {

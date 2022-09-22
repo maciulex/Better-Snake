@@ -2,7 +2,7 @@ class Config {
     classReady = false;
     width  = 0;
     height = 0;
-
+    maxplayerNumber = 8;
     playersNumber = 1;
 
     // if player click to move right when he come from right then this event will not be registred
@@ -107,9 +107,15 @@ class Config {
         board: document.querySelector("#BOARD"),
         interfaces: {
             controls: document.querySelector(".mainControlsSet"),
-            controlsMainWindow: document.querySelector(".userControlsInterface")
+            controlsMainWindow: document.querySelector(".userControlsInterface"),
+            nicknames: document.querySelector(".mainNicknamesSet"),
+            nicknamesMainWindow: document.querySelector(".userNicknameInterface"),
+        },
 
-        }
+        leaderBoard: {
+            mainTable: document.querySelector(".Leaderboard"),
+            mainTableRanks: document.querySelector(".leaderBoardRanks"),
+        },
     }
 
     constructor (width, height, playersAmount, playerDefaultSpeed) {

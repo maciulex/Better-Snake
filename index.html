@@ -27,6 +27,12 @@
 
         </section>
     </section>
+    <section class="userNicknameInterface" style="display: none">
+        <button onclick="interfaces.showNicknamesInterface(false);">Zamknij</button>
+        <section class="mainNicknamesSet">
+
+        </section>
+    </section>
 
     <aside>
         <table class="settings">
@@ -46,42 +52,22 @@
                 <td><input type="number" min="5"         id="playerBaseSpeedSetting"  value="500"></td>
             </tr>
             <tr>
-                <td><button onclick="">Ustaw pseudonimy</button></td>
+                <td><button onclick="interfaces.showNicknamesInterface(true);">Ustaw pseudonimy</button></td>
                 <td><button onclick="">Ustawienia power'UP</button></td>
             </tr>
             <tr>
                 <td><button onclick="interfaces.showConrolsInterface(true);">Ustaw Sterowanie</button></td>
-                <td>to do:</td>
+                <td><button onclick="interfaces.changeTheme();">Zmień motyw</button></td>
             </tr>
             <tr>
                 <td colspan="2"><button style="width: 50%;" onclick="applySettings()">Zastosuj</button></td>
             </tr>
         </table>
-        <table>
-            <tr>
-                <th>Gracz:</th>
-                <th>Wynik:</th>
-            </tr>
-            <tr>
-                <td>Zielony</td>
-                <td>43</td>
-            </tr>
-            <tr>
-                <td>Czerwony</td>
-                <td>24</td>
-            </tr>
-            <tr>
-                <td>Brązowy</td>
-                <td>22</td>
-            </tr>
-            <tr>
-                <td>Niebieski</td>
-                <td>12</td>
-            </tr>
-            <tr>
-                <td>Fioletowy</td>
-                <td>5</td>
-            </tr>
+        <table class="Leaderboard">
+            <tbody class="leaderBoardRanks">
+
+            </tbody>
+
         </table>
     </aside>
     <main>

@@ -14,7 +14,7 @@ class Interfaces {
                         <tr>
                             <th colspan="3" style="color: ${config.playersStyle[i].color};">
                                 ${config.playerMainName[i]}<br>
-                                <span>nie ustawiono</span>
+                                <span>${leaderBoard.getPlayerNickname(i)}</span>
                             </th>
                         </tr>
                         <tr>
@@ -33,14 +33,55 @@ class Interfaces {
         }
     }
 
+    initNicknamesInterFace() {
+        config.htmlPlaces.interfaces.nicknames.innerHTML = "";
+        for (let i = 0; i < 8; i++) {
+            let nickname = leaderBoard.getPlayerNickname(i);
+            if (nickname == null) nickname = "Nie ustawiono";
+            config.htmlPlaces.interfaces.nicknames.innerHTML += `
+                <table>
+                    <tbody>
+                        <tr>
+                            <th style="color: ${config.playersStyle[i].color};">
+                                ${config.playerMainName[i]}<br>
+                                <span>${nickname}</span>
+                            </th>
+                        </tr>
+                        <tr>
+                            <td class="nickname"><input type="text" id="setUserNick${i}"></td>
+                            <td class="nickname"><button onclick='interfaces.setUserNickname(document.querySelector("#setUserNick${i}").value, ${i});'>Ustaw Nick</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            `;
+        }
+    }
+
+    setUserNickname(value, player) {
+        console.log(value, player);
+        leaderBoard.setPlayerNickname(value, player);
+        this.initNicknamesInterFace();
+        this.initControlsInterFace();
+    }
+
     showConrolsInterface(show) {
         if (show) return config.htmlPlaces.interfaces.controlsMainWindow.setAttribute("style", "display: block");
         config.htmlPlaces.interfaces.controlsMainWindow.setAttribute("style", "display: none");
         // if (show) return config.htmlPlaces.interfaces.controls.setAr = "display:block";
         // config.htmlPlaces.interfaces.controls.style = "display:none";
     }
+    showNicknamesInterface(show) {
+        if (show) return config.htmlPlaces.interfaces.nicknamesMainWindow.setAttribute("style", "display: block");
+        config.htmlPlaces.interfaces.nicknamesMainWindow.setAttribute("style", "display: none");
+        // if (show) return config.htmlPlaces.interfaces.controls.setAr = "display:block";
+        // config.htmlPlaces.interfaces.controls.style = "display:none";
+    }
+    changeTheme() {
+
+    }
 
     constructor() {
         this.initControlsInterFace();
+        this.initNicknamesInterFace();
     }
 }

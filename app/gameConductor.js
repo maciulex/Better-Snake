@@ -56,7 +56,11 @@ class GameConductor {
     }
 
     gameOver() {
-        config.htmlPlaces.board.innerHTML = `<div class="error">GAME OVER</div><br><button onclick="init(11, 11, 1);">Restart</button>`;
+        for (let i = 0; i < this.intervals.length;i++) {
+            clearInterval(this.intervals[i]);
+        }
+        clearInterval(this.powerUpInterval);
+        config.htmlPlaces.board.innerHTML = `<div class="error">GAME OVER</div><br><button onclick="applySettings(11, 11, 1);">Restart</button>`;
     }
 
     powerUp(id, which) {
@@ -83,6 +87,8 @@ class GameConductor {
                 for (let i = 0; i < effect; i++) {
                     this.players[id].addCell();
                 }
+                leaderBoard.addPlayerScore(id, 10)
+                leaderBoard.updateRanks();
             break;
             case 1:
 
