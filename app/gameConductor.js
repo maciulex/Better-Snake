@@ -61,7 +61,15 @@ class GameConductor {
             clearInterval(this.intervals[i]);
         }
         clearInterval(this.powerUpInterval);
-        config.htmlPlaces.board.innerHTML = `<div class="error">GAME OVER</div><br><button onclick="applySettings(11, 11, 1);">Restart</button>`;
+        if (config.htmlPlaces.board.classList.contains("ranimation")) config.htmlPlaces.board.classList.remove("ranimation");
+        config.htmlPlaces.board.style.animation = 'none';
+        config.htmlPlaces.board.offsetHeight; /* trigger reflow */
+        config.htmlPlaces.board.style.animation = null; 
+        config.htmlPlaces.board.classList.add("animation");
+        window.setTimeout(() => {
+            config.htmlPlaces.board.innerHTML = `<div class="error">GAME OVER</div><br><button onclick="applySettings(11, 11, 1);">Restart</button>`;
+
+        }, 2500);
     }
 
     powerUp(id, which) {

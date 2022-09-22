@@ -1,5 +1,37 @@
 
+@keyframes boardWanish {
+    0% {
+        margin-top: 0;
+        margin-left: 0;
+    }
+
+
+    50% {
+        margin-top: 100vh;
+        margin-left: 100vw;
+        transform: rotate(30deg);
+    }
+
+    100% {
+        margin-top: 0;
+        margin-left: 0;
+        transform: rotate(0deg);
+    }
+}
+
+.animation {
+    animation-name: boardWanish;
+    animation-duration: 5s;
+}
+
+.ranimation {
+    animation-name: boardWanish;
+    animation-duration: 5s;
+    animation-direction: reverse;
+}
+
 body {
+    overflow: hidden;
     display: grid;
     grid-template-columns: 30fr 70fr;
     align-items: center;
@@ -106,6 +138,9 @@ body {
         display: grid;
         align-items: center;
         height: 100%;
+        max-width: 90vh;
+        max-height: 90vh;
+        overflow: hidden;
         table {
             width: 90vh;    
             height: 90vh;
