@@ -30,8 +30,8 @@ class Player {
         
 
         if (config.pngRealism) {
-            drawer.photoDrawOn(this.snake[0], this.style.color, newCordinates, true);
-            if (this.snake.length > 1) drawer.photoDrawOn(this.snake[1], this.style.color, [this.snake[0], this.snake[1], this.snake[2]], false);
+            drawer.photoDrawOn(this.snake[0], this.style.color, newCordinates, true, this.id);
+            if (this.snake.length > 1) drawer.photoDrawOn(this.snake[1], this.style.color, [this.snake[0], this.snake[1], this.snake[2]], false, this.id);
             drawer.photoUndrawOn(lastCords);
             //drawer.photoDrawOn(this.snake[this.snake.length-1]);
         } else {

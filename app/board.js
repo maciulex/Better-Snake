@@ -16,6 +16,11 @@ function generateBoard(x, y) {
 function initialDrawPlayers() {
     for (let i = 0; i < config.playersNumber; i++) {
         let playerCords = gameConductor.players[i].snake[0];
-        document.querySelector(`#x${playerCords[0]}y${playerCords[1]}`).style.backgroundColor = gameConductor.players[i].style.color;
+        if (config.pngRealism) {
+            drawer.photoDrawOn(playerCords, null, gameConductor.players[i].move[0](playerCords), true, i);
+        } else {
+            drawer.drawOn(playerCords, gameConductor.players[i].style.color);
+            //document.querySelector(`#x${playerCords[0]}y${playerCords[1]}`).style.backgroundColor = gameConductor.players[i].style.color;
+        }
     }
 }

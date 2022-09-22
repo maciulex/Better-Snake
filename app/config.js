@@ -25,27 +25,27 @@ class Config {
     ];
 
     playersStyle = [
-        {"color": "red"},
-        {"color": "green"},
-        {"color": "blue"},
-        {"color": "purple"},
+        {"color": "red",    "filter": "invert(22%) sepia(68%) saturate(7490%) hue-rotate(355deg) brightness(91%) contrast(123%)"},
+        {"color": "green",  "filter": "invert(76%) sepia(47%) saturate(6752%) hue-rotate(80deg) brightness(112%) contrast(128%)"},
+        {"color": "blue",   "filter": "invert(9%) sepia(99%) saturate(7047%) hue-rotate(247deg) brightness(90%) contrast(146%)"},
+        {"color": "purple", "filter": "invert(67%) sepia(74%) saturate(7430%) hue-rotate(276deg) brightness(83%) contrast(85%)"},
 
-        {"color": "orange"},
-        {"color": "pink"},
-        {"color": "yellow"},
-        {"color": "black"},
+        {"color": "orange", "filter": "invert(73%) sepia(23%) saturate(6518%) hue-rotate(359deg) brightness(101%) contrast(106%)"},
+        {"color": "pink",   "filter": "invert(95%) sepia(24%) saturate(7400%) hue-rotate(230deg) brightness(111%) contrast(105%)"},
+        {"color": "yellow", "filter": "invert(90%) sepia(91%) saturate(4803%) hue-rotate(358deg) brightness(104%) contrast(105%)"},
+        {"color": "black",  "filter": ""},
     ];
 
     playersDefaultMove = [
-        [(cords) => {return [cords[0]+1, cords[1]]}, null],
-        [(cords) => {return [cords[0]-1, cords[1]]}, null],
-        [(cords) => {return [cords[0]-1, cords[1]]}, null],
-        [(cords) => {return [cords[0]+1, cords[1]]}, null],
+        [(cords) => {return [cords[0]+1, cords[1], "right"]}, null],
+        [(cords) => {return [cords[0]-1, cords[1], "left"]}, null],
+        [(cords) => {return [cords[0]-1, cords[1], "left"]}, null],
+        [(cords) => {return [cords[0]+1, cords[1], "right"]}, null],
 
-        [(cords) => {return [cords[0], cords[1]+1]}, null],
-        [(cords) => {return [cords[0], cords[1]-1]}, null],
-        [(cords) => {return [cords[0]+1, cords[1]]}, null],
-        [(cords) => {return [cords[0]-1, cords[1]]}, null]
+        [(cords) => {return [cords[0], cords[1]+1, "up"]}, null],
+        [(cords) => {return [cords[0], cords[1]-1, "down"]}, null],
+        [(cords) => {return [cords[0]+1, cords[1], "right"]}, null],
+        [(cords) => {return [cords[0]-1, cords[1], "left"]}, null]
     ];
 
     playersSpawns = [];

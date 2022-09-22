@@ -13,29 +13,32 @@ class Drawer {
     }
 
     photoUndrawOn(cords) {
-        document.querySelector(`#x${cords[0]}y${cords[1]}`).style.backgroundImage = "";
+        let element  = document.querySelector(`#x${cords[0]}y${cords[1]}`);
+
+        element.style.backgroundImage = "";
+        element.style.filter = "";
     }
 
-    photoDrawOn(cords, color, direction, head = false) {
+    photoDrawOn(cords, color, direction, head = false, playerID) {
+        let element  = document.querySelector(`#x${cords[0]}y${cords[1]}`);
+        element.style.filter = config.playersStyle[playerID].filter;
         if (direction === undefined) return;
         if (head) {
-            document.querySelector(`#x${cords[0]}y${cords[1]}`).style.backgroundImage = "url('../snake/head.png')";
-            document.querySelector(`#x${cords[0]}y${cords[1]}`).style.transform = this.getHeadRotation(direction);
+            element.style.backgroundImage = "url('../snake/head.png')";
+            element.style.transform = this.getHeadRotation(direction);
             return;
         } 
         if (direction[2] == undefined || direction[0][2] == direction[1][2]) {
-            document.querySelector(`#x${cords[0]}y${cords[1]}`).style.backgroundImage = "url('../snake/updownleftright.png')";
-            document.querySelector(`#x${cords[0]}y${cords[1]}`).style.transform = this.getHeadRotation(this.getHeadRotation(direction[0]));
+            element.style.backgroundImage = "url('../snake/updownleftright.png')";
+            element.style.transform = this.getHeadRotation(this.getHeadRotation(direction[0]));
             return
         }
         if (direction[0][2] != direction[1][2]) {
-            console.log(direction[0][2], direction[1][2], direction[2][2]);
             let data = this.getTurnSnake(direction);
             if (data == null) return;
-            console.log(true);
 
-            document.querySelector(`#x${cords[0]}y${cords[1]}`).style.backgroundImage = data[1];
-            document.querySelector(`#x${cords[0]}y${cords[1]}`).style.transform = data[0];
+            element.style.backgroundImage = data[1];
+            element.style.transform = data[0];
         }
     } 
     
