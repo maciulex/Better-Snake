@@ -2,10 +2,10 @@ var startButton = "Space";
 var setInput = [null, null];
 
 var playerControls = [
-    (cords) => {return [cords[0] - 1, cords[1]]},//lewo
-    (cords) => {return [cords[0] + 1, cords[1]]},//prawo
-    (cords) => {return [cords[0], cords[1]-1]},//gora
-    (cords) => {return [cords[0], cords[1]+1]},//dol
+    (cords) => {return [cords[0] - 1, cords[1],  "left"]},//lewo
+    (cords) => {return [cords[0] + 1, cords[1], "right"]},//prawo
+    (cords) => {return [cords[0], cords[1]-1, "up"]},//gora
+    (cords) => {return [cords[0], cords[1]+1, "down"]},//dol
 ];
 
 
@@ -14,6 +14,7 @@ var specialKeyWords = [
 ];
 
 document.addEventListener("keydown", (e) => {
+    if (e.code == "KeyF") debugger;
     if (setInput[0] !== null) {
         if (e.code = "Space") return;
         for (let i = 0; i < playerControlsRaw.length; i++) {

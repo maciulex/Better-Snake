@@ -36,11 +36,11 @@ class GameConductor {
         clearTimeout(this.intervals[id]);
         for (let i = 0; i < this.players[id].snake.length; i++) {
             this.clearBoardAccesybility(this.players[id].snake[i]);
-            undrawOn(this.players[id].snake[i]);
+            drawer.undrawOn(this.players[id].snake[i]);
         }
         let game = false;
         for (let i = 0; i < this.playersPlaying.length; i++) {
-            if (this.playersPlaying[i]) game = !game;
+            if (this.playersPlaying[i]) game = true;
         }
         if (!game) {
             this.gameOver();
@@ -123,7 +123,7 @@ class GameConductor {
                 if (this.boardAccesibility[cords[0]][cords[1]] == -1) {
                     this.boardAccesibility[cords[0]][cords[1]] = config.powerUpsAllwaysOnMap[i].id;
                     let color = config.powerUps[config.powerUpsAllwaysOnMap[i]].style.color;
-                    drawOn(cords, color);
+                    drawer.drawOn(cords, color);
                     this.powerUpsAllwaysOnMap[i] = true;
                     this.boardAccesibility[cords[0]][cords[1]] = config.powerUps[config.powerUpsAllwaysOnMap[i]].id;
                     break;

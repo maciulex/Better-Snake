@@ -1,5 +1,7 @@
 var config;
 var gameConductor;
+var drawer;
+drawer = new Drawer;
 var interfaces;
 var leaderBoard;
 var ERROR = "";
@@ -23,6 +25,11 @@ function init(width, height, playerNumber, playerDefaultSpeed) {
     generateBoard(config.width, config.height);
     gameConductor = new GameConductor();
     initialDrawPlayers();
+}
+
+function compareCordinates(cords1, cords2) {
+    if (cords1[0] == cords2[0] && cords1[1] == cords2[1]) return true;
+    return false;
 }
 
 function applySettings() {

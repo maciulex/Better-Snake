@@ -13,14 +13,6 @@ function generateBoard(x, y) {
     config.htmlPlaces.board.innerHTML = result;
 }
 
-function drawOn(cords, color) {
-    document.querySelector(`#x${cords[0]}y${cords[1]}`).style.backgroundColor = color;
-} 
-
-function undrawOn(cords) {
-    document.querySelector(`#x${cords[0]}y${cords[1]}`).style.backgroundColor = "";
-}
-
 function initialDrawPlayers() {
     for (let i = 0; i < config.playersNumber; i++) {
         let playerCords = gameConductor.players[i].snake[0];

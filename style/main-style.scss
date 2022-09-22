@@ -114,9 +114,11 @@ body {
             width: 90vh;    
             height: 90vh;
             td {
+                background-size: cover;
                 width: fit-content;
                 height: fit-content;
                 border: 1px solid;
+                border-radius: 25%;
             }
         }
     }

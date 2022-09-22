@@ -133,6 +133,7 @@ body main table {
 }
 
 body main table td {
+  background-size: cover;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -140,5 +141,6 @@ body main table td {
   height: -moz-fit-content;
   height: fit-content;
   border: 1px solid;
+  border-radius: 25%;
 }
 /*# sourceMappingURL=main-style.css.map */

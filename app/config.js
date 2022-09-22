@@ -10,6 +10,7 @@ class Config {
     
     playerDefaultSpeed = 500;
 
+    pngRealism = true;
 
     playerMainName = [
         "Czerwony",

@@ -1,6 +1,7 @@
 class Player {
     id = 0;
     snake = [];
+    snakeDirection = [];
     style = {};
     speed = 1000;
     move;
@@ -16,18 +17,29 @@ class Player {
         if (headPlace < 8 && headPlace != -1) return this.loose();
         
         this.snake.unshift(newCordinates);
+        
+        if (headPlace != -1) {
+            gameConductor.powerUp(this.id, headPlace);
+            drawer.undrawOn(newCordinates);
+        }
+
         let lastCords = this.snake.pop();
 
         this.lastMoveCode = this.move[1];
 
         
-        if (headPlace != -1) {
-            gameConductor.powerUp(this.id, headPlace);
+
+        if (config.pngRealism) {
+            drawer.photoDrawOn(this.snake[0], this.style.color, newCordinates, true);
+            if (this.snake.length > 1) drawer.photoDrawOn(this.snake[1], this.style.color, [this.snake[0], this.snake[1], this.snake[2]], false);
+            drawer.photoUndrawOn(lastCords);
+            //drawer.photoDrawOn(this.snake[this.snake.length-1]);
+        } else {
+            drawer.undrawOn(lastCords);
+            drawer.drawOn(this.snake[0], this.style.color);
+            drawer.drawOn(this.snake[this.snake.length-1]);
         }
 
-        undrawOn(lastCords);
-        drawOn(this.snake[0], this.style.color);
-        drawOn(this.snake[this.snake.length-1], this.style.color);
         gameConductor.clearBoardAccesybility(lastCords);
         gameConductor.setBoardAccesybilityToPlayer(this.snake[0], this.id);
         gameConductor.setBoardAccesybilityToPlayer(this.snake[this.snake.length-1], this.id);
