@@ -1,4 +1,5 @@
 class Interfaces {
+    theme = "dark";
     initControlsInterFace() {
         config.htmlPlaces.interfaces.controls.innerHTML = "";
         for (let i = 0; i < 8; i++) {
@@ -76,8 +77,21 @@ class Interfaces {
         // if (show) return config.htmlPlaces.interfaces.controls.setAr = "display:block";
         // config.htmlPlaces.interfaces.controls.style = "display:none";
     }
-    changeTheme() {
 
+    changeTheme() {
+        let element = document.querySelector("body");
+        switch (this.theme) {
+            case "dark":
+                this.theme = "light";
+                element.classList.remove("dark");
+                element.classList.add("light");
+            break;
+            case "light":
+                this.theme = "dark";
+                element.classList.remove("light");
+                element.classList.add("dark");
+            break;
+        }
     }
 
     constructor() {

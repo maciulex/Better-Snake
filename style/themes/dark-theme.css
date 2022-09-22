@@ -2,6 +2,21 @@
   background-color: #272727;
 }
 
+.dark .userControlsInterface .mainControlsSet, .dark .userControlsInterface .mainNicknamesSet, .dark .userNicknameInterface .mainControlsSet, .dark .userNicknameInterface .mainNicknamesSet {
+  background-color: #363732;
+  border-color: black;
+}
+
+.dark .userControlsInterface .mainControlsSet table .control, .dark .userControlsInterface .mainControlsSet table th, .dark .userControlsInterface .mainNicknamesSet table .control, .dark .userControlsInterface .mainNicknamesSet table th, .dark .userNicknameInterface .mainControlsSet table .control, .dark .userNicknameInterface .mainControlsSet table th, .dark .userNicknameInterface .mainNicknamesSet table .control, .dark .userNicknameInterface .mainNicknamesSet table th {
+  color: white;
+  background-color: #342E37;
+  border-color: brown;
+}
+
+.dark .userControlsInterface .mainControlsSet table th span, .dark .userControlsInterface .mainNicknamesSet table th span, .dark .userNicknameInterface .mainControlsSet table th span, .dark .userNicknameInterface .mainNicknamesSet table th span {
+  color: white;
+}
+
 .dark aside {
   color: white;
 }

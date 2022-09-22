@@ -24,20 +24,17 @@ body {
         .mainControlsSet, .mainNicknamesSet {
             width: 100%;
             height: 95%;
-            background-color: #363732;
     
             border-radius: 10px;
-            border: 10px solid black;
+            border: 10px solid;
     
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr;
             table {
                 padding: 2vh;
                 .control, th {
-                    color: white;
                     text-align: center;
-                    background-color: #342E37;
-                    border: 1px solid brown;
+                    border: 1px solid ;
                 }
                 
                 .control {
@@ -49,7 +46,6 @@ body {
                     margin: 0;
                     font-size: 29px;
                     span {
-                        color:white;
                         font-size: medium;
                     }
                 }

@@ -3,6 +3,24 @@
 
 .dark {
     background-color: #272727;
+    .userControlsInterface, .userNicknameInterface {
+        .mainControlsSet, .mainNicknamesSet {
+            background-color: #363732;
+            border-color: black;
+            table {
+                .control, th {
+                    color: white;
+                    background-color: #342E37;
+                    border-color: brown;
+                }
+                th {
+                    span {
+                        color:white;
+                    }
+                }
+            }
+        }
+    }
     aside {
         color: white;
         table {

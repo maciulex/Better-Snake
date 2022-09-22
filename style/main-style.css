@@ -28,9 +28,8 @@ body .userControlsInterface, body .userNicknameInterface {
 body .userControlsInterface .mainControlsSet, body .userControlsInterface .mainNicknamesSet, body .userNicknameInterface .mainControlsSet, body .userNicknameInterface .mainNicknamesSet {
   width: 100%;
   height: 95%;
-  background-color: #363732;
   border-radius: 10px;
-  border: 10px solid black;
+  border: 10px solid;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
@@ -42,10 +41,8 @@ body .userControlsInterface .mainControlsSet table, body .userControlsInterface 
 }
 
 body .userControlsInterface .mainControlsSet table .control, body .userControlsInterface .mainControlsSet table th, body .userControlsInterface .mainNicknamesSet table .control, body .userControlsInterface .mainNicknamesSet table th, body .userNicknameInterface .mainControlsSet table .control, body .userNicknameInterface .mainControlsSet table th, body .userNicknameInterface .mainNicknamesSet table .control, body .userNicknameInterface .mainNicknamesSet table th {
-  color: white;
   text-align: center;
-  background-color: #342E37;
-  border: 1px solid brown;
+  border: 1px solid;
 }
 
 body .userControlsInterface .mainControlsSet table .control, body .userControlsInterface .mainNicknamesSet table .control, body .userNicknameInterface .mainControlsSet table .control, body .userNicknameInterface .mainNicknamesSet table .control {
@@ -59,7 +56,6 @@ body .userControlsInterface .mainControlsSet table th, body .userControlsInterfa
 }
 
 body .userControlsInterface .mainControlsSet table th span, body .userControlsInterface .mainNicknamesSet table th span, body .userNicknameInterface .mainControlsSet table th span, body .userNicknameInterface .mainNicknamesSet table th span {
-  color: white;
   font-size: medium;
 }
 
